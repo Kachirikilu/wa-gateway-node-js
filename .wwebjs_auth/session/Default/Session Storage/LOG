@@ -1,0 +1,4 @@
+2026/08/13-11:10:41.161 3154 Creating DB C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Session Storage since it was missing.
+2026/08/13-11:10:41.188 3154 Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2026/08/13-11:10:41.196 3154 Recovering log #3
+2026/08/13-11:10:41.212 3154 Reusing old log C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Session Storage/000003.log 

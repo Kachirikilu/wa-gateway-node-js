@@ -1,0 +1,84 @@
+const axios = require("axios");
+const FormData = require("form-data");
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function WithExcelCapaianNilai(msg, context) {
+  const {
+    pesanBersih,
+    nomorPengirim,
+    namaWhatsApp,
+    nomorRaw,
+    client,
+  } = context;
+
+  const pesanUpper = pesanBersih.toUpperCase().trim();
+  const triggerExcelNilai = ['EXCEL NILAI', 'INPUT NILAI', 'UPLOAD NILAI'];
+  const isExcelNilaiTrigger = triggerExcelNilai.some((trigger) =>
+    pesanUpper.startsWith(trigger)
+  );
+
+  // Ambil tipe data media di awal jika ada berkas masuk
+  const isExcelFile = msg.hasMedia && [
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'application/vnd.ms-excel'
+  ].includes(msg._data?.mimetype || msg.mimetype); // Menjaga kompabilitas deteksi tipe mimetype wwebjs
+
+  // Jika bukan teks pemicu DAN bukan file excel, langsung lewati handler ini
+  if (!isExcelNilaiTrigger && !isExcelFile) {
+    return false;
+  }
+
+  console.log(`📩 Memproses payload Excel/Teks dari nomor: ${nomorPengirim}...`);
+  const urlLaravel = process.env.LARAVEL_URL || "http://127.0.0.1:8000/api/webhook/wa-incoming";
+  const form = new FormData();
+
+  form.append('whatsapp_number', nomorPengirim);
+  form.append('whatsapp_name', namaWhatsApp);
+  form.append('whatsapp_message', pesanBersih);
+
+  if (msg.hasMedia && isExcelFile) {
+    const media = await msg.downloadMedia();
+    if (media && media.data) {
+      const fileBuffer = Buffer.from(media.data, 'base64');
+      form.append('excel_file', fileBuffer, {
+        filename: media.filename || `excel_${Date.now()}.xlsx`,
+        contentType: media.mimetype,
+        knownLength: fileBuffer.length
+      });
+    }
+  }
+
+  try {
+    const responseFromLaravel = await axios.post(urlLaravel, form, {
+      headers: {
+        ...form.getHeaders(),
+        Authorization: `Bearer ${process.env.NODEJS_TOKEN}`
+      },
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
+    });
+
+    console.log(`🚀 Laravel Merespons Proses Excel:`, responseFromLaravel.data);
+
+    if (responseFromLaravel.data.status === true) {
+      await delay(1000);
+      const data = responseFromLaravel.data;
+      const balasan = (data.head && data.message) ? `${data.head}\n\n${data.message}` : data.message;
+      await client.sendMessage(nomorRaw, balasan);
+      
+      console.log(`💬 Balasan proses excel sukses dikirim ke ${nomorPengirim}`);
+    }
+  } catch (error) {
+    console.error(`❌ Error HTTP Excel dari Laravel:`, error.response?.data || error.message);
+    
+    await delay(1000);
+    const data = error.response?.data;
+    const pesanGagal = data.message || "Terjadi kesalahan saat memproses data Nilai Mahasiswa!";
+    const balasan = (data.head && data.message) ? `${data.head}\n\n${pesanGagal}` : pesanGagal;
+    await client.sendMessage(nomorRaw, balasan);
+  }
+
+  return true;
+}
+
+module.exports = WithExcelCapaianNilai;

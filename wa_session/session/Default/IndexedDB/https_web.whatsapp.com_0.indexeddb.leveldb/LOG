@@ -1,0 +1,37 @@
+2026/07/15-19:24:59.492 796c Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\wa_session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/07/15-19:24:59.492 796c Recovering log #243
+2026/07/15-19:24:59.493 796c Reusing old log C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\wa_session\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000243.log 
+2026/07/15-19:24:59.493 796c Delete type=2 #242
+2026/07/15-19:25:00.273 796c Compacting 1@1 + 1@2 files
+2026/07/15-19:25:00.275 796c Generated table #247@1: 234 keys, 4941 bytes
+2026/07/15-19:25:00.275 796c Compacted 1@1 + 1@2 files => 4941 bytes
+2026/07/15-19:25:00.276 796c compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/07/15-19:25:00.276 796c Delete type=2 #233
+2026/07/15-19:25:00.276 796c Delete type=2 #245
+2026/07/15-19:25:01.001 7158 Manual compaction at level-0 from '\x00|\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00}\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/07/15-19:25:01.003 7158 Level-0 table #249: started
+2026/07/15-19:25:01.005 7158 Level-0 table #249: 89819 bytes OK
+2026/07/15-19:25:01.006 7158 Delete type=0 #243
+2026/07/15-19:25:01.006 7158 Manual compaction at level-0 from '\x00}\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00~\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/07/15-19:25:01.013 7158 Manual compaction at level-0 from '\x00z\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00{\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/07/15-19:25:01.014 7158 Level-0 table #251: started
+2026/07/15-19:25:01.015 7158 Level-0 table #251: 36502 bytes OK
+2026/07/15-19:25:01.016 7158 Delete type=0 #248
+2026/07/15-19:25:01.016 31a0 Manual compaction at level-0 from '\x00{\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00|\x00\x00\x00' @ 0 : 0; will stop at '\x00{\x00\x00\xc8\x13\x00l\x00r\x00u\x00-\x00m\x00e\x00d\x00i\x00a\x00-\x00m\x00e\x00t\x00a\x00-\x00i\x00n\x00f\x00o' @ 146975 : 0
+2026/07/15-19:25:01.016 31a0 Compacting 1@0 + 1@1 files
+2026/07/15-19:25:01.020 31a0 Generated table #252@0: 2526 keys, 22286 bytes
+2026/07/15-19:25:01.021 31a0 Compacted 1@0 + 1@1 files => 22286 bytes
+2026/07/15-19:25:01.021 31a0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/07/15-19:25:01.021 31a0 Delete type=2 #251
+2026/07/15-19:25:01.022 2194 Manual compaction at level-0 from '\x00{\x00\x00\xc8\x13\x00l\x00r\x00u\x00-\x00m\x00e\x00d\x00i\x00a\x00-\x00m\x00e\x00t\x00a\x00-\x00i\x00n\x00f\x00o' @ 146975 : 0 .. '\x00|\x00\x00\x00' @ 0 : 0; will stop at (end)
+2026/07/15-19:25:01.022 31a0 Level-0 table #254: started
+2026/07/15-19:25:01.024 31a0 Level-0 table #254: 721 bytes OK
+2026/07/15-19:25:01.024 31a0 Delete type=2 #249
+2026/07/15-19:25:01.024 31a0 Delete type=0 #250
+2026/07/15-19:25:01.025 31a0 Manual compaction at level-0 from '\x00~\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x7f\x00\x00\x00' @ 0 : 0; will stop at '\x00~\x00\x00\xc8\x0d\x00l\x00o\x00c\x00a\x00l\x00_\x00s\x00t\x00o\x00r\x00a\x00g\x00e' @ 147009 : 0
+2026/07/15-19:25:01.025 31a0 Compacting 1@0 + 1@1 files
+2026/07/15-19:25:01.027 31a0 Generated table #255@0: 2509 keys, 22002 bytes
+2026/07/15-19:25:01.027 31a0 Compacted 1@0 + 1@1 files => 22002 bytes
+2026/07/15-19:25:01.028 31a0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/07/15-19:25:01.028 31a0 Delete type=2 #254
+2026/07/15-19:25:01.028 31a0 Manual compaction at level-0 from '\x00~\x00\x00\xc8\x0d\x00l\x00o\x00c\x00a\x00l\x00_\x00s\x00t\x00o\x00r\x00a\x00g\x00e' @ 147009 : 0 .. '\x00\x7f\x00\x00\x00' @ 0 : 0; will stop at (end)

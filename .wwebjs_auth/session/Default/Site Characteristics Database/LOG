@@ -1,0 +1,4 @@
+2026/08/13-11:10:41.068 6d84 Creating DB C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Site Characteristics Database since it was missing.
+2026/08/13-11:10:41.083 6d84 Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Site Characteristics Database/MANIFEST-000001
+2026/08/13-11:10:41.084 6d84 Recovering log #3
+2026/08/13-11:10:41.085 6d84 Reusing old log C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Site Characteristics Database/000003.log 
