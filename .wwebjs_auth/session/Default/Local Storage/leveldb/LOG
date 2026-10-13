@@ -1,14 +1,5 @@
-2026/08/13-11:10:41.162 828 Creating DB C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Local Storage\leveldb since it was missing.
-2026/08/13-11:10:41.195 828 Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2026/08/13-11:10:41.198 828 Recovering log #22
-2026/08/13-11:10:41.205 828 Reusing old log C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Local Storage\leveldb/000022.log 
-2026/08/13-11:10:41.216 828 Delete type=2 #14
-2026/08/13-11:10:41.216 828 Delete type=2 #16
-2026/08/13-11:10:41.217 828 Delete type=2 #20
-2026/08/13-11:10:41.217 828 Delete type=2 #23
-2026/08/13-11:11:41.232 828 Level-0 table #24: started
-2026/08/13-11:11:41.237 828 Level-0 table #24: 20335 bytes OK
-2026/08/13-11:11:41.238 828 Delete type=0 #22
-2026/08/13-12:06:33.528 828 Level-0 table #26: started
-2026/08/13-12:06:33.535 828 Level-0 table #26: 12481 bytes OK
-2026/08/13-12:06:33.537 828 Delete type=0 #23
+2026/10/11-01:26:04.760 5ed9 Reusing MANIFEST /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
+2026/10/11-01:26:04.767 5ed9 Recovering log #3
+2026/10/11-01:26:04.767 5ed9 Level-0 table #3: started
+2026/10/11-01:26:04.770 5ed9 Level-0 table #3: 19890 bytes OK
+2026/10/11-01:26:04.773 5ed9 Delete type=0 #3

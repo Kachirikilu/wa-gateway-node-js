@@ -12,31 +12,13 @@ async function WithDataDiri(msg, context) {
   } = context;
 
   const pesanUpper = pesanBersih.toUpperCase();
-  const triggerToken = [
-    "DATA DIRI",
-    "MY SELF",
-    "DATA",
-    "AUTH",
-    "AKUN",
-    "USER",
-    "TOKEN",
-    "CHECK TOKEN",
-    "CEK TOKEN",
-    "INFORMASI TOKEN",
-    "LIMTI",
-    "CHECK LIMIT",
-    "LIMIT",
-  ];
-  const triggerResetToken = [
-    "ISI TOKEN",
-    "PERBARUI TOKEN",
-    "TOKEN BARU",
-    "RESET TOKEN",
-    "TAMBAH TOKEN",
-    "PERBARUI LIMIT",
-    "UPDATE TOKEN",
-    "TOKEN UPDATE",
-  ];
+  const triggerToken = (process.env.TRIGGER_TOKEN || "")
+    .split(",")
+    .map((item) => item.trim().toUpperCase());
+
+  const triggerResetToken = (process.env.TRIGGER_RESET_TOKEN || "")
+    .split(",")
+    .map((item) => item.trim().toUpperCase());
 
   const isDataDiriTrigger = triggerToken.includes(pesanUpper);
   const isResetTokenTrigger = triggerResetToken.includes(pesanUpper);
@@ -73,7 +55,10 @@ async function WithDataDiri(msg, context) {
     if (responseFromLaravel.data.status === true) {
       await delay(1000);
       const data = responseFromLaravel.data;
-      const balasan = (data.head && data.message) ? `${data.head}\n\n${data.message}` : data.message;
+      const balasan =
+        data.head && data.message
+          ? `${data.head}\n\n${data.message}`
+          : data.message;
       await client.sendMessage(nomorRaw, balasan);
 
       console.log(
@@ -87,8 +72,10 @@ async function WithDataDiri(msg, context) {
     );
     await delay(1000);
     const data = error.response?.data;
-    const pesanGagal = data.message || "Terjadi Kesalahan saat Mengambil Data Diri Anda!";
-    const balasan = (data.head && data.message) ? `${data.head}\n\n${pesanGagal}` : pesanGagal;
+    const pesanGagal =
+      data.message || "Terjadi Kesalahan saat Mengambil Data Diri Anda!";
+    const balasan =
+      data.head && data.message ? `${data.head}\n\n${pesanGagal}` : pesanGagal;
     await client.sendMessage(nomorRaw, balasan);
   }
 

@@ -48,11 +48,28 @@ const axios = require("axios");
 //   },
 // });
 
+// const client = new Client({
+//     authStrategy: new LocalAuth(),
+//     puppeteer: {
+//         headless: true,
+//         args: ['--no-sandbox']
+//     }
+// });
+
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        headless: true,
-        args: ['--no-sandbox']
+        // Arahkan langsung ke binary Chrome bawaan sistem
+        executablePath: '/usr/bin/google-chrome-stable',
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--disable-gpu'
+        ]
     }
 });
 
@@ -64,7 +81,7 @@ const WithDataDiri = require("./WhatsAppController/WithDataDiri");
 const WithDeactivation = require("./WhatsAppController/WithDeactivation");
 const WithKelas = require("./WhatsAppController/WithKelas");
 const WithNilaiMahasiswa = require("./WhatsAppController/WithNilaiMahasiswa");
-const WithExcelCapaianNilai = require("./WhatsAppController/WithExcelCapaianNilai");
+const WithCapaianNilai = require("./WhatsAppController/WithCapaianNilai");
 const WithRPS = require("./WhatsAppController/WithRPS");
 const WithHelp = require("./WhatsAppController/WithHelp");
 
@@ -161,7 +178,7 @@ client.on("message_create", async (msg) => {
       handled = await WithNilaiMahasiswa(msg, context);
     }
     if (!handled) {
-      handled = await WithExcelCapaianNilai(msg, context);
+      handled = await WithCapaianNilai(msg, context);
     }
     if (!handled) {
       handled = await WithRPS(msg, context);

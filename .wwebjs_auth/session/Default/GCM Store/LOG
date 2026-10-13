@@ -1,2 +1,3 @@
-2026/08/13-11:10:47.368 755c Creating DB C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\GCM Store since it was missing.
-2026/08/13-11:10:47.373 755c Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\GCM Store/MANIFEST-000001
+2026/10/11-01:26:07.817 5eaf Reusing MANIFEST /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/GCM Store/MANIFEST-000001
+2026/10/11-01:26:07.818 5eaf Recovering log #3
+2026/10/11-01:26:07.818 5eaf Reusing old log /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/GCM Store/000003.log 

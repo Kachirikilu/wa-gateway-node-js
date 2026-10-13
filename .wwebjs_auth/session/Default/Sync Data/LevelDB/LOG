@@ -1,4 +1,3 @@
-2026/08/13-11:10:41.061 cbc Creating DB C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Sync Data\LevelDB since it was missing.
-2026/08/13-11:10:41.073 cbc Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Sync Data\LevelDB/MANIFEST-000001
-2026/08/13-11:10:41.074 cbc Recovering log #3
-2026/08/13-11:10:41.074 cbc Reusing old log C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\Sync Data\LevelDB/000003.log 
+2026/10/11-01:26:04.720 5eaf Reusing MANIFEST /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/Sync Data/LevelDB/MANIFEST-000001
+2026/10/11-01:26:04.721 5eaf Recovering log #3
+2026/10/11-01:26:04.721 5eaf Reusing old log /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/Sync Data/LevelDB/000003.log 

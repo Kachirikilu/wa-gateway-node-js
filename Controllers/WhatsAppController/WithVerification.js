@@ -12,16 +12,14 @@ async function WithVerification(msg, context) {
   } = context;
 
   const pesanUpper = pesanBersih.toUpperCase();
-  const triggerVerify = [
-    "VERIFIKASI",
-    "VERIFY",
-    "VERYFICATION",
-    "IDENTITAS",
-    "REGISTRASI",
-    "LOGIN",
-    "LOG IN",
-    "MASUK",
-  ];
+
+  const triggerVerify = (
+    process.env.TRIGGER_VERIFY ||
+    "VERIFIKASI,VERIFY,VERYFICATION,IDENTITAS,REGISTRASI,LOGIN,LOG IN,MASUK"
+  )
+    .split(",")
+    .map((item) => item.trim().toUpperCase());
+
   const isVerifyTrigger = triggerVerify.some((trigger) =>
     pesanUpper.startsWith(trigger),
   );
@@ -49,12 +47,15 @@ async function WithVerification(msg, context) {
   console.log(`🚀 Laravel Merespons:`, responseFromLaravel.data);
 
   if (responseFromLaravel.data.status === true) {
-      await delay(1000);
-      const data = responseFromLaravel.data;
-      const balasan = (data.head && data.message) ? `${data.head}\n\n${data.message}` : data.message;
-      await client.sendMessage(nomorRaw, balasan);
+    await delay(1000);
+    const data = responseFromLaravel.data;
+    const balasan =
+      data.head && data.message
+        ? `${data.head}\n\n${data.message}`
+        : data.message;
+    await client.sendMessage(nomorRaw, balasan);
 
-      console.log(`💬 Balasan sukses Verifikasi terkirim ke ${nomorPengirim}`);
+    console.log(`💬 Balasan sukses Verifikasi terkirim ke ${nomorPengirim}`);
   }
 
   return true;

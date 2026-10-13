@@ -13,7 +13,10 @@ async function WithNilaiMahasiswa(msg, context) {
 
   const pesanUpper = pesanBersih.toUpperCase();
   
-  const triggerNilaiMahasiswa = ['NILAI', 'NILAI SAYA', 'LIHAT NILAI', 'NILAI SEMESTER'];
+  const triggerNilaiMahasiswa = (process.env.TRIGGER_NILAI_MAHASISWA || "NILAI,NILAI SAYA,LIHAT NILAI,NILAI SEMESTER")
+  .split(",")
+  .map((item) => item.trim().toUpperCase());
+
   const isNilaiMahasiswaTrigger = triggerNilaiMahasiswa.some((trigger) =>
     pesanUpper.startsWith(trigger)
   );

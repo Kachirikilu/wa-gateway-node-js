@@ -9,21 +9,15 @@ async function WithDeactivation(msg, context) {
     namaWhatsApp,
     nomorRaw,
     client,
-  } =
-    context;
+  } = context;
 
   const pesanUpper = pesanBersih.toUpperCase();
-  const triggerDeactivate = [
-    "NONAKTIFKAN",
-    "MATIKAN",
-    "DIAM",
-    "SILENT",
-    "LOGOUT",
-    "KELUAR",
-    "LOG OUT",
-    "MUTE",
-    "MIC MATI",
-  ];
+  const triggerDeactivate = (
+    process.env.TRIGGER_DEACTIVATE ||
+    "NONAKTIFKAN,MATIKAN,DIAM,SILENT,LOGOUT,KELUAR,LOG OUT,MUTE,MIC MATI"
+  )
+    .split(",")
+    .map((item) => item.trim().toUpperCase());
   const isDeactivateTrigger = triggerDeactivate.includes(pesanUpper);
 
   if (!isDeactivateTrigger) {
@@ -66,10 +60,15 @@ async function WithDeactivation(msg, context) {
     if (responseFromLaravel.data.status === true) {
       await delay(1000);
       const data = responseFromLaravel.data;
-      const balasan = (data.head && data.message) ? `${data.head}\n\n${data.message}` : data.message;
+      const balasan =
+        data.head && data.message
+          ? `${data.head}\n\n${data.message}`
+          : data.message;
       await client.sendMessage(nomorRaw, balasan);
 
-      console.log(`💬 Balasan [Penonaktifan] sukses dikirim ke ${nomorPengirim}`);
+      console.log(
+        `💬 Balasan [Penonaktifan] sukses dikirim ke ${nomorPengirim}`,
+      );
     }
   } catch (error) {
     console.error(
@@ -79,8 +78,10 @@ async function WithDeactivation(msg, context) {
 
     await delay(1000);
     const data = error.response?.data;
-    const pesanGagal = data.message || "Terjadi Kesalahan Sistem saat Memproses Penonaktifan!";
-    const balasan = (data.head && data.message) ? `${data.head}\n\n${pesanGagal}` : pesanGagal;
+    const pesanGagal =
+      data.message || "Terjadi Kesalahan Sistem saat Memproses Penonaktifan!";
+    const balasan =
+      data.head && data.message ? `${data.head}\n\n${pesanGagal}` : pesanGagal;
     await client.sendMessage(nomorRaw, balasan);
   }
 

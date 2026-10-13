@@ -61,7 +61,7 @@ const WithDataDiri = require("./WhatsAppController/WithDataDiri");
 const WithDeactivation = require("./WhatsAppController/WithDeactivation");
 const WithKelas = require("./WhatsAppController/WithKelas");
 const WithNilaiMahasiswa = require("./WhatsAppController/WithNilaiMahasiswa");
-const WithExcelCapaianNilai = require("./WhatsAppController/WithExcelCapaianNilai");
+const WithCapaianNilai = require("./WhatsAppController/WithCapaianNilai");
 const WithRPS = require("./WhatsAppController/WithRPS");
 const WithHelp = require("./WhatsAppController/WithHelp");
 
@@ -158,7 +158,7 @@ client.on("message_create", async (msg) => {
       handled = await WithNilaiMahasiswa(msg, context);
     }
     if (!handled) {
-      handled = await WithExcelCapaianNilai(msg, context);
+      handled = await WithCapaianNilai(msg, context);
     }
     if (!handled) {
       handled = await WithRPS(msg, context);

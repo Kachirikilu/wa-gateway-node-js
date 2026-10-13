@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { MessageMedia } = require("whatsapp-web.js"); 
+const { MessageMedia } = require("whatsapp-web.js");
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function WithHelp(msg, context) {
@@ -13,19 +13,25 @@ async function WithHelp(msg, context) {
   } = context;
 
   const pesanUpper = pesanBersih.toUpperCase();
-  
-  const triggerHelp = ['HELP', 'LIST', 'TOLONG', 'INFO', 'COMMAND', 'COMMAND LIST'];
 
-  const isHelpTrigger = triggerHelp.some((trigger) => pesanUpper.startsWith(trigger));
+  const triggerHelp = (
+    process.env.TRIGGER_HELP || "HELP,LIST,TOLONG,INFO,COMMAND,COMMAND LIST"
+  )
+    .split(",")
+    .map((item) => item.trim().toUpperCase());
+
+  const isHelpTrigger = triggerHelp.some((trigger) =>
+    pesanUpper.startsWith(trigger),
+  );
 
   if (!isHelpTrigger) {
     return false;
   }
 
   // --- Susunan Pesan Help Formal berdasarkan Kategori ---
-const helpMessage = `💡 *COMMAND LIST* 💡
+  const helpMessage = `💡 *COMMAND LIST* 💡
 
-Halo _${namaWhatsApp || 'User'}_, berikut adalah perintah yang dapat Anda gunakan:
+Halo _${namaWhatsApp || "User"}_, berikut adalah perintah yang dapat Anda gunakan:
 
 \`\`\`🔐 1. AKUN & OTENTIKASI\`\`\`
 - *LOGIN [ID_AKADEMIK]*

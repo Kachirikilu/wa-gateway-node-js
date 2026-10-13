@@ -13,7 +13,10 @@ async function WithKelas(msg, context) {
 
   const pesanUpper = pesanBersih.toUpperCase();
   
-  const triggerKelas = ['LIST KELAS', 'SEMUA KELAS', 'DAFTAR KELAS', 'KELAS HARI INI',  'KELAS MINGGU INI', 'KELAS HARI',  'KELAS MINGGU',  'CHECK KELAS',  'KELAS SAYA',  'KELAS', 'JADWAL KELAS', 'JADWAL', 'KELAS JADWAL'];
+  const triggerKelas = (process.env.TRIGGER_KELAS || "LIST KELAS,SEMUA KELAS,DAFTAR KELAS,KELAS HARI INI,KELAS MINGGU INI,KELAS HARI,KELAS MINGGU,CHECK KELAS,KELAS SAYA,KELAS,JADWAL KELAS,JADWAL,KELAS JADWAL")
+  .split(",")
+  .map((item) => item.trim().toUpperCase());
+
   const isKelasTrigger = triggerKelas.some((trigger) =>
     pesanUpper.startsWith(trigger)
   );

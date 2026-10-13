@@ -1,2 +1,2 @@
-2026/08/13-11:11:21.041 7918 Creating DB C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\WebStorage\2\IndexedDB\indexeddb.leveldb since it was missing.
-2026/08/13-11:11:21.048 7918 Reusing MANIFEST C:\Users\user\Documents\File Wildan\Node JS\wa-gateway-node-js\.wwebjs_auth\session\Default\WebStorage\2\IndexedDB\indexeddb.leveldb/MANIFEST-000001
+2026/10/11-01:08:08.484 4c78 Creating DB /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/WebStorage/2/IndexedDB/indexeddb.leveldb since it was missing.
+2026/10/11-01:08:08.489 4c78 Reusing MANIFEST /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/WebStorage/2/IndexedDB/indexeddb.leveldb/MANIFEST-000001
