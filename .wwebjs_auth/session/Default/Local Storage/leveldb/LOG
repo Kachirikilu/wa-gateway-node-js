@@ -1,5 +1,3 @@
-2026/10/11-01:26:04.760 5ed9 Reusing MANIFEST /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2026/10/11-01:26:04.767 5ed9 Recovering log #3
-2026/10/11-01:26:04.767 5ed9 Level-0 table #3: started
-2026/10/11-01:26:04.770 5ed9 Level-0 table #3: 19890 bytes OK
-2026/10/11-01:26:04.773 5ed9 Delete type=0 #3
+2026/10/14-18:56:58.472 4200 Reusing MANIFEST /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
+2026/10/14-18:56:58.478 4200 Recovering log #4
+2026/10/14-18:56:58.479 4200 Reusing old log /home/wildan12/Documents/Laravel Projek Akhir/wa-gateway-node-js/.wwebjs_auth/session/Default/Local Storage/leveldb/000004.log 

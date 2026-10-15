@@ -132,6 +132,9 @@ const api = async (req, res) => {
 };
 
 client.on("message_create", async (msg) => {
+  if (msg.fromMe) {
+    return;
+  }
   const isiPesan = msg.body;
 
   try {
