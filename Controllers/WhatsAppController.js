@@ -131,8 +131,10 @@ const api = async (req, res) => {
   }
 };
 
+const isMeConfig = process.env.IS_ME || 0;
+
 client.on("message_create", async (msg) => {
-  if (msg.fromMe) {
+  if (msg.fromMe && isMeConfig == 0) {
     return;
   }
   const isiPesan = msg.body;
